@@ -7,10 +7,17 @@ public class Player_Movement : MonoBehaviour
     public static Player_Movement obj;
     private Rigidbody2D rb;
     private Animator anim;
+
+    [Header("Move Settings")]
     private float moveHor;
     private float moveVer;
     public float speedHor;
     public float speedVer;
+
+    [Header("Limit Settings")]
+    public float xLimit;
+    public float yLimit;
+
     private void Awake()
     {
         obj = this;
@@ -23,6 +30,10 @@ public class Player_Movement : MonoBehaviour
     private void FixedUpdate()
     {
         Move();
+    }
+    private void Update()
+    {
+        LimitUpdate();
         AnimationMove();
     }
     private void Move()
@@ -40,6 +51,17 @@ public class Player_Movement : MonoBehaviour
         if (Input.GetKey("down"))
         {
             anim.Play("Rocket_Down");
+        }
+    }
+    private void LimitUpdate()
+    {
+        if (transform.position.x < xLimit) 
+        {
+            transform.position = new Vector2 (xLimit, transform.position.y);
+        }
+        if (transform.position.x > -xLimit)
+        {
+            transform.position = new Vector2(-xLimit, transform.position.y);
         }
     }
 }

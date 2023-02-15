@@ -7,8 +7,8 @@ public class BackGround_Move : MonoBehaviour
     Rigidbody2D rb;
     public float moveSpeed;
     public float moveForce;
-    public GameObject backGroundLimit;
     public float leftLimit;
+
     
     void Start()
     {
@@ -17,17 +17,24 @@ public class BackGround_Move : MonoBehaviour
 
     void Update()
     {
-        
+        LimitInstance();
     }
     private void FixedUpdate()
     {
-        rb.AddForce(Vector2.left * moveForce);
+        //rb.AddForce(Vector2.left * moveForce);
+        transform.Translate(Vector2.left * moveSpeed * Time.deltaTime);
     }
     void LimitInstance()
     {
-        if(backGroundLimit.transform.position.x == leftLimit)
+        bool canChange = true;
+        if(transform.position.x <= leftLimit && canChange == true)
         {
-            print("H");
+            transform.position = new Vector2(19, 0);
+            canChange = false;
+        }
+        if (transform.position.x >= leftLimit && canChange == false)
+        {
+            canChange = true;
         }
     }
 }
