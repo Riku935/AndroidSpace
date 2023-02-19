@@ -15,12 +15,14 @@ public class Ship_Spawner : MonoBehaviour
 
     void Update()
     {
-        if (Time.time >= timeToSpawn)
+        if (GameManager.obj.gameReady)
         {
-            SpawnBlocks();
-            timeToSpawn = Time.time + timeBetweenSpawn;
-
-        }
+            if (Time.time >= timeToSpawn)
+            {
+                SpawnBlocks();
+                timeToSpawn = Time.time + timeBetweenSpawn;
+            }
+        } 
     }
     void SpawnBlocks()
     {

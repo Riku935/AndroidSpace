@@ -19,13 +19,20 @@ public class Ship_Movement : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        transform.Translate(Vector2.left * moveSpeed * Time.deltaTime);
+        ShipMove();
     }
     private void DestroyShip()
     {
         if (transform.position.x <= -12)
         {
             Destroy(gameObject);
+        }
+    }
+    private void ShipMove() 
+    {
+        if (GameManager.obj.gameReady)
+        {
+            transform.Translate(Vector2.left * moveSpeed * Time.deltaTime);
         }
     }
 }

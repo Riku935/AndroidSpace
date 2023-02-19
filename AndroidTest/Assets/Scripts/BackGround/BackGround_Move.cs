@@ -21,8 +21,10 @@ public class BackGround_Move : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        //rb.AddForce(Vector2.left * moveForce);
-        transform.Translate(Vector2.left * moveSpeed * Time.deltaTime);
+        if (GameManager.obj.gameReady)
+        {
+            transform.Translate(Vector2.left * moveSpeed * Time.deltaTime);
+        }
     }
     void LimitInstance()
     {

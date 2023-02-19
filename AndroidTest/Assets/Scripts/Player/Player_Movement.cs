@@ -29,7 +29,7 @@ public class Player_Movement : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        Move();
+        Move();    
     }
     private void Update()
     {
@@ -41,6 +41,12 @@ public class Player_Movement : MonoBehaviour
         moveHor = Input.GetAxisRaw("Horizontal");
         moveVer = Input.GetAxisRaw("Vertical");
         rb.velocity = new Vector2(moveHor * speedHor, moveVer * speedVer);
+
+        if (GameManager.obj.gameReady == false)
+        {
+            speedHor = 0;
+            speedVer = 0;
+        }
     }
     private void AnimationMove()
     {
@@ -62,6 +68,15 @@ public class Player_Movement : MonoBehaviour
         if (transform.position.x > -xLimit)
         {
             transform.position = new Vector2(-xLimit, transform.position.y);
+        }
+
+        if (transform.position.y < yLimit)
+        {
+            transform.position = new Vector2(transform.position.x, yLimit);
+        }
+        if (transform.position.y > -yLimit)
+        {
+            transform.position = new Vector2(transform.position.x, -yLimit);
         }
     }
 }
