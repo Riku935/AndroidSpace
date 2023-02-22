@@ -15,9 +15,15 @@ public class Player_Shoot : MonoBehaviour
             Shoot();
         }
     }
-    void Shoot()
+    public void Shoot()
     {
-        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        //Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        GameObject bullet = ObjectPooling.instance.GetPooledObject();
+        if(bullet != null)
+        {
+            bullet.transform.position = firePoint.position;
+            bullet.SetActive(true);
+        }
         canShoot = false;
         StartCoroutine(TimeShoot());
     }

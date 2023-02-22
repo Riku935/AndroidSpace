@@ -11,24 +11,43 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        BulletMovement();
+        //BulletMovement();
     }
 
     void Update()
     {
-        
+        BulletMovement();
+        BulletLimit();
     }
     void BulletMovement()
     {
         rb.velocity = transform.right * speed;
     }
+    void BulletLimit()
+    {
+        if (this.transform.position.x >= 10 )
+        {
+            gameObject.SetActive(false);
+        }
+    }
+    void BulletImpact()
+    {
+        Instantiate(impactEffect, transform.position, transform.rotation);
+        StartCoroutine (deactivateCoroutine());
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Enemy"))
+        if (collision.CompareTag("Enemy"))
         {
-            Destroy(gameObject);
-            Instantiate(impactEffect, transform.position, transform.rotation);
+            BulletImpact(); 
+           // gameObject.SetActive(false);
         }
+    }
+    public IEnumerator deactivateCoroutine()
+    {
+        Debug.Log("hhhh");
+        yield return new WaitForSecondsRealtime(0.1f);
+        Debug.Log("adios");
     }
 }
 
