@@ -19,12 +19,17 @@ public class GameManager : MonoBehaviour
     {
         GameOver();
     }
-    void GameOver()
+    public void GameOver()
     {
         if (gameOver == true)
         {
             gameReady = false;
         }
+    }
+    public void GamePaused()
+    {
+        gamePaused = true;
+        gameReady = false;
     }
     private void OnDestroy()
     {

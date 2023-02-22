@@ -25,7 +25,7 @@ public class Bullet : MonoBehaviour
     }
     void BulletLimit()
     {
-        if (this.transform.position.x >= 10 )
+        if (this.transform.position.x >= 12 )
         {
             gameObject.SetActive(false);
         }
@@ -33,21 +33,14 @@ public class Bullet : MonoBehaviour
     void BulletImpact()
     {
         Instantiate(impactEffect, transform.position, transform.rotation);
-        StartCoroutine (deactivateCoroutine());
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Enemy"))
         {
             BulletImpact(); 
-           // gameObject.SetActive(false);
+            gameObject.SetActive(false);
         }
-    }
-    public IEnumerator deactivateCoroutine()
-    {
-        Debug.Log("hhhh");
-        yield return new WaitForSecondsRealtime(0.1f);
-        Debug.Log("adios");
     }
 }
 

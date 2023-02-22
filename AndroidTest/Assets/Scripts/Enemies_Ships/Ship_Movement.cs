@@ -25,7 +25,7 @@ public class Ship_Movement : MonoBehaviour
     {
         if (transform.position.x <= -12)
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
     private void ShipMove() 

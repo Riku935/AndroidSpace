@@ -21,18 +21,21 @@ public class Ship_Main : MonoBehaviour
         if (shipLife == 0)
         {
             ShipDestroy();
+            isDead = true;
         }
     }
     void ShipDestroy()
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
         Instantiate(destroyEffect, transform.position, transform.rotation);
+        shipLife = 100;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
             ShipDestroy();
+            print("murio");
         }
         if(collision.CompareTag("Bullet"))
         {

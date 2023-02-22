@@ -32,7 +32,13 @@ public class Ship_Spawner : MonoBehaviour
         {
             if (randomList != i) //Si el numero aleatorio y el valor de i(osea el numero del ciclo en el que nos encontramos) son diferentes entre si, se realiza la funcion
             {
-                Instantiate(shipPrefab, spawnPoints[i].position, Quaternion.identity); //Crea un objeto en la posicion del objeto asignado en la lista, dependiendo del valor de i
+                GameObject ship = Ship_Pooling.instance.GetPooledObject();
+                if (ship != null)
+                {
+                    ship.transform.position = spawnPoints[i].position;
+                    ship.SetActive(true);
+                }
+                //Instantiate(shipPrefab, spawnPoints[i].position, Quaternion.identity); //Crea un objeto en la posicion del objeto asignado en la lista, dependiendo del valor de i
             }
         }
     }

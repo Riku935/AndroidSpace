@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using EasyJoystick;
 
 public class Player_Movement : MonoBehaviour
 {
     public static Player_Movement obj;
     private Rigidbody2D rb;
     private Animator anim;
+    [SerializeField] private Joystick joyStick;
 
     [Header("Move Settings")]
     private float moveHor;
@@ -40,7 +42,12 @@ public class Player_Movement : MonoBehaviour
     {
         moveHor = Input.GetAxisRaw("Horizontal");
         moveVer = Input.GetAxisRaw("Vertical");
-        rb.velocity = new Vector2(moveHor * speedHor, moveVer * speedVer);
+        float xMovement = joyStick.Horizontal();
+        float yMovement = joyStick.Vertical();
+
+        //rb.velocity = new Vector2(moveHor * speedHor, moveVer * speedVer);
+        rb.velocity = new Vector2(xMovement * speedHor, yMovement * speedVer);
+
 
         if (GameManager.obj.gameReady == false)
         {
