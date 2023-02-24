@@ -24,6 +24,7 @@ public class Player_Shoot : MonoBehaviour
             bullet.transform.position = firePoint.position;
             bullet.SetActive(true);
         }
+        AudioManager.obj.playShot();
         canShoot = false;
         StartCoroutine(TimeShoot());
     }

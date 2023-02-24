@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
         if (gameOver == true)
         {
             gameReady = false;
+            UiManager.obj.GameOver();
         }
     }
     public void GamePaused()

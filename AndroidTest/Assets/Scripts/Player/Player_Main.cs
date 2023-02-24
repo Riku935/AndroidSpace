@@ -13,6 +13,8 @@ public class Player_Main : MonoBehaviour
     public float inmuneTimeCount = 0f;
 
     private SpriteRenderer spr;
+
+    public GameObject deathEffect;
     private void Awake()
     {
         obj = this;
@@ -48,10 +50,13 @@ public class Player_Main : MonoBehaviour
     {
         life--;
         Inmune();
+        AudioManager.obj.playDamage();
     }
     void PlayerDeath()
     {
         GameManager.obj.gameOver = true;
+        Instantiate(deathEffect, transform.position, transform.rotation);
+        spr.enabled = false;  
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

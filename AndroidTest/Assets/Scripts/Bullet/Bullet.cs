@@ -25,7 +25,7 @@ public class Bullet : MonoBehaviour
     }
     void BulletLimit()
     {
-        if (this.transform.position.x >= 12 )
+        if (this.transform.position.x >= 8.8 )
         {
             gameObject.SetActive(false);
         }

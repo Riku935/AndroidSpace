@@ -54,6 +54,11 @@ public class Player_Movement : MonoBehaviour
             speedHor = 0;
             speedVer = 0;
         }
+        else
+        {
+            speedHor = 5f;
+            speedVer = 5f;
+        }
     }
     private void AnimationMove()
     {

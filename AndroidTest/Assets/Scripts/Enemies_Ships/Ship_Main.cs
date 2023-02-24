@@ -29,6 +29,7 @@ public class Ship_Main : MonoBehaviour
         gameObject.SetActive(false);
         Instantiate(destroyEffect, transform.position, transform.rotation);
         shipLife = 100;
+        AudioManager.obj.playHit();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

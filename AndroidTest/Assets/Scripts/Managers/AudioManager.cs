@@ -7,7 +7,9 @@ public class AudioManager : MonoBehaviour
     public static AudioManager obj;
     private AudioSource audioSrc;
 
-    public AudioClip burst;
+    public AudioClip shot;
+    public AudioClip hit;
+    public AudioClip damage;
 
     private void Awake()
     {
@@ -15,7 +17,9 @@ public class AudioManager : MonoBehaviour
         audioSrc = gameObject.AddComponent<AudioSource>();
     }
 
-    public void playBurst() { Playsound(burst);}
+    public void playShot() { Playsound(shot);}
+    public void playHit() { Playsound(hit); }
+    public void playDamage() { Playsound(damage); }
 
     public void Playsound(AudioClip clip)
     {

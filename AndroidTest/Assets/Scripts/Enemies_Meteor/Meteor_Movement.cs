@@ -8,6 +8,7 @@ public class Meteor_Movement : MonoBehaviour
     public float moveSpeed;
     public GameObject destroyEffect;
     Rigidbody2D rb;
+    
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -19,10 +20,13 @@ public class Meteor_Movement : MonoBehaviour
         if (GameManager.obj.gameReady)
         {
             transform.Rotate(0, 0, -rotationSpeed);
+            rb.WakeUp();
+            rb.gravityScale = 0.02f;
         }
         if (GameManager.obj.gameReady == false)
         {
             rb.gravityScale = 0;
+            rb.Sleep();
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)

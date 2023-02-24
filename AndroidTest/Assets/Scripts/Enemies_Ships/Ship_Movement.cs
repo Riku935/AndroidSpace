@@ -8,10 +8,12 @@ public class Ship_Movement : MonoBehaviour
     public float moveSpeed;
     public float moveForce;
     Rigidbody2D rb;
+    Animator anim;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
     private void Update()
     {
@@ -33,6 +35,11 @@ public class Ship_Movement : MonoBehaviour
         if (GameManager.obj.gameReady)
         {
             transform.Translate(Vector2.left * moveSpeed * Time.deltaTime);
+            anim.enabled = true;
+        }
+        else
+        {
+            anim.enabled = false;
         }
     }
 }
