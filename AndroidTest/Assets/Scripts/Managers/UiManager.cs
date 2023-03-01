@@ -11,6 +11,7 @@ public class UiManager : MonoBehaviour
 
     public TMP_Text life;
     public TMP_Text score;
+    public TMP_Text maxScore;
     [SerializeField] GameObject pauseMenu;
     [SerializeField] GameObject gameOverMenu;
     [SerializeField] GameObject gameMenu;
@@ -23,6 +24,7 @@ public class UiManager : MonoBehaviour
     {
         updateLives();
         updateScore();
+        MaxScore();
     }
 
     public void updateLives()
@@ -32,7 +34,11 @@ public class UiManager : MonoBehaviour
 
     public void updateScore()
     {
-        score.text = "" + GameManager.obj.score;
+        score.text = "" + ScoreManager.obj.currentScore;
+    }
+    public void MaxScore()
+    {
+        maxScore.text = "" + ScoreManager.obj.maxScore;
     }
     
     public void Pause()

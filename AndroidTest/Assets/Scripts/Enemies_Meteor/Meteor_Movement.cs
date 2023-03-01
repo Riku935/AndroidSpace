@@ -21,7 +21,7 @@ public class Meteor_Movement : MonoBehaviour
         {
             transform.Rotate(0, 0, -rotationSpeed);
             rb.WakeUp();
-            rb.gravityScale = 0.02f;
+            rb.gravityScale = 0.02f * ScoreManager.obj.difficultyMult;
         }
         if (GameManager.obj.gameReady == false)
         {
@@ -35,7 +35,7 @@ public class Meteor_Movement : MonoBehaviour
         {
             Destroy(gameObject);
             Instantiate(destroyEffect, transform.position, transform.rotation);
-            GameManager.obj.score += 100;
+            ScoreManager.obj.currentScore += 100;
         }
     }
 }

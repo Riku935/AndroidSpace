@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57fad50ad7a39f4b9ac1a49b50c2271, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
+  moveSpeed: 4
   moveForce: 1
 --- !u!114 &-8229925012984770179
 MonoBehaviour:
@@ -183,4 +183,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shipLife: 100
+  isDead: 0
   destroyEffect: {fileID: 7553560064979781194, guid: e06604c5da2b5fe409c3a82e5888bfe4, type: 3}

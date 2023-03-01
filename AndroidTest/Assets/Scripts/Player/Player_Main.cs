@@ -56,7 +56,8 @@ public class Player_Main : MonoBehaviour
     {
         GameManager.obj.gameOver = true;
         Instantiate(deathEffect, transform.position, transform.rotation);
-        spr.enabled = false;  
+        spr.enabled = false;
+        ScoreManager.obj.MaxScore();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

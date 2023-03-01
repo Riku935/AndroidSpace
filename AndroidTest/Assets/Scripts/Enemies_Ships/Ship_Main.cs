@@ -41,7 +41,7 @@ public class Ship_Main : MonoBehaviour
         if(collision.CompareTag("Bullet"))
         {
             shipLife -= 100;
-            GameManager.obj.score += 100;
+            ScoreManager.obj.currentScore += 100;
         }
     }
 }

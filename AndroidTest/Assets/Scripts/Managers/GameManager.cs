@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
         gamePaused = true;
         gameReady = false;
     }
+    
     private void OnDestroy()
     {
         obj = null;

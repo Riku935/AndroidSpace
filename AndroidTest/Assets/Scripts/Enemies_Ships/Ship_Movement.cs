@@ -34,12 +34,16 @@ public class Ship_Movement : MonoBehaviour
     {
         if (GameManager.obj.gameReady)
         {
-            transform.Translate(Vector2.left * moveSpeed * Time.deltaTime);
+            transform.Translate(Vector2.left * moveSpeed * ScoreManager.obj.difficultyMult * Time.deltaTime);
             anim.enabled = true;
         }
         else
         {
             anim.enabled = false;
         }
+    }
+    private void IncreasedDifficulty()
+    {
+
     }
 }

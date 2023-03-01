@@ -11,8 +11,8 @@ public class Player_Movement : MonoBehaviour
     [SerializeField] private Joystick joyStick;
 
     [Header("Move Settings")]
-    private float moveHor;
-    private float moveVer;
+    private float currentHor;
+    private float currentVer;
     public float speedHor;
     public float speedVer;
 
@@ -28,6 +28,8 @@ public class Player_Movement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        currentHor = speedHor;
+        currentVer = speedVer;
     }
     private void FixedUpdate()
     {
@@ -40,12 +42,12 @@ public class Player_Movement : MonoBehaviour
     }
     private void Move()
     {
-        moveHor = Input.GetAxisRaw("Horizontal");
-        moveVer = Input.GetAxisRaw("Vertical");
+        //currentHor = Input.GetAxisRaw("Horizontal");
+        //currentVer = Input.GetAxisRaw("Vertical");
         float xMovement = joyStick.Horizontal();
         float yMovement = joyStick.Vertical();
 
-        //rb.velocity = new Vector2(moveHor * speedHor, moveVer * speedVer);
+        //rb.velocity = new Vector2(currentHor * speedHor, currentVer * speedVer);
         rb.velocity = new Vector2(xMovement * speedHor, yMovement * speedVer);
 
 
@@ -56,8 +58,8 @@ public class Player_Movement : MonoBehaviour
         }
         else
         {
-            speedHor = 5f;
-            speedVer = 5f;
+            speedHor = currentHor;
+            speedVer = currentVer;
         }
     }
     private void AnimationMove()
