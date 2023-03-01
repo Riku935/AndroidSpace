@@ -33,4 +33,8 @@ public class MainMenu : MonoBehaviour
         extraMenu.SetActive(false);
         mainMenu.SetActive(true);
     }
+    public void EraseData()
+    {
+        PlayerPrefs.SetInt("MaxScore",0);
+    }
 }

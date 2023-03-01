@@ -170,6 +170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 4
   moveForce: 1
+  movePoints: []
 --- !u!114 &-8229925012984770179
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -56,10 +56,12 @@ public class UiManager : MonoBehaviour
     public void Home()
     {
         SceneManager.LoadScene("MainMenu");
+        ScoreManager.obj.MaxScore();
     }
     public void Retry()
     {
         SceneManager.LoadScene("MainScene");
+        ScoreManager.obj.MaxScore();
     }
     public void GameOver()
     {

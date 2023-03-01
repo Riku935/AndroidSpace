@@ -16,7 +16,8 @@ public class ScoreManager : MonoBehaviour
     }
     private void Start()
     {
-        currentScore = score; ;
+        currentScore = score;
+        maxScore = PlayerPrefs.GetInt("MaxScore");
     }
     private void Update()
     {
@@ -24,9 +25,12 @@ public class ScoreManager : MonoBehaviour
     }
     public void MaxScore()
     {
-        if(currentScore > maxScore)
+        
+        if (currentScore > maxScore)
         {
             maxScore = currentScore;
+            PlayerPrefs.SetInt("MaxScore", maxScore);
+            print("asdasd");
         }
     }
     public void IncreasedDifficulty()

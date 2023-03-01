@@ -7,6 +7,9 @@ public class Ship_Movement : MonoBehaviour
 {
     public float moveSpeed;
     public float moveForce;
+    public Transform[] movePoints;
+    private Transform currentTarget;
+    private float timer;
     Rigidbody2D rb;
     Animator anim;
 
@@ -14,10 +17,17 @@ public class Ship_Movement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        randomPoint();
     }
     private void Update()
     {
         DestroyShip();
+        timer += Time.deltaTime;
+        if(timer > 5f ) 
+        {
+            randomPoint();
+            timer = 0;
+        }
     }
     private void FixedUpdate()
     {
@@ -35,6 +45,7 @@ public class Ship_Movement : MonoBehaviour
         if (GameManager.obj.gameReady)
         {
             transform.Translate(Vector2.left * moveSpeed * ScoreManager.obj.difficultyMult * Time.deltaTime);
+            //transform.position = Vector2.MoveTowards(transform.position,currentTarget.position, moveSpeed * Time.deltaTime);
             anim.enabled = true;
         }
         else
@@ -42,8 +53,9 @@ public class Ship_Movement : MonoBehaviour
             anim.enabled = false;
         }
     }
-    private void IncreasedDifficulty()
+    private void randomPoint()
     {
-
+        int amount = Random.Range(0, movePoints.Length);
+        currentTarget = movePoints[amount];
     }
 }

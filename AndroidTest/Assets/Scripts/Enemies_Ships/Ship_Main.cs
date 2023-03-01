@@ -36,7 +36,6 @@ public class Ship_Main : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             ShipDestroy();
-            print("murio");
         }
         if(collision.CompareTag("Bullet"))
         {
