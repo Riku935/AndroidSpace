@@ -7,31 +7,33 @@ public class Ship_Movement : MonoBehaviour
 {
     public float moveSpeed;
     public float moveForce;
-    public Transform[] movePoints;
-    private Transform currentTarget;
     private float timer;
     Rigidbody2D rb;
     Animator anim;
+    public int randomNumber;
+    public float yLimit;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        randomPoint();
+        StartCoroutine("changeMove");
     }
     private void Update()
     {
         DestroyShip();
+        LimitUpdate();  
         timer += Time.deltaTime;
         if(timer > 5f ) 
         {
-            randomPoint();
             timer = 0;
         }
     }
     private void FixedUpdate()
     {
         ShipMove();
+        
+
     }
     private void DestroyShip()
     {
@@ -45,6 +47,8 @@ public class Ship_Movement : MonoBehaviour
         if (GameManager.obj.gameReady)
         {
             transform.Translate(Vector2.left * moveSpeed * ScoreManager.obj.difficultyMult * Time.deltaTime);
+            VerticalMove();
+
             //transform.position = Vector2.MoveTowards(transform.position,currentTarget.position, moveSpeed * Time.deltaTime);
             anim.enabled = true;
         }
@@ -53,9 +57,36 @@ public class Ship_Movement : MonoBehaviour
             anim.enabled = false;
         }
     }
-    private void randomPoint()
+    IEnumerator changeMove()
     {
-        int amount = Random.Range(0, movePoints.Length);
-        currentTarget = movePoints[amount];
+        while (true)
+        {
+            yield return new WaitForSeconds(1);
+            randomNumber = Random.Range(0, 2);
+        }
     }
+    private void VerticalMove()
+    {
+        if (randomNumber == 0)
+        {
+            transform.Translate(Vector2.down * moveSpeed * ScoreManager.obj.difficultyMult * Time.deltaTime);
+            if(transform.position.y <= yLimit)
+            {
+                randomNumber = 1;
+            }
+        }
+        else
+        {
+            transform.Translate(Vector2.up * moveSpeed * ScoreManager.obj.difficultyMult * Time.deltaTime);
+            if (transform.position.y >= -   yLimit)
+            {
+                randomNumber = 0;
+            }
+        }
+    }
+    private void LimitUpdate()
+    {
+                  
+    }
+
 }
