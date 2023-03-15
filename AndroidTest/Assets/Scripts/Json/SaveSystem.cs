@@ -3,25 +3,56 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.IO;
+using Unity.VisualScripting;
 
 public class SaveSystem : MonoBehaviour
 {
     void Start()
     {
+        string json = File.ReadAllText(Application.streamingAssetsPath + "/GameData.json");
+        GameData[] datas = JsonHelper.FromJson<GameData>(json);
+    }
+
+    void Write()
+    {
         GameData[] datas = new GameData[150];
-        int ids = 0;
-        int currentData = 0;
-        for (int i = 0; i <150 ; i++)
+        int ids = -1;
+        int currentData = -1;
+        int ship = 0;
+        int currentColor = 0;
+        List<string> colors = new List<string>
+        {
+            "Red",
+            "Orange",
+            "Yellow",
+            "Green",
+            "Blue",
+            "Purple",
+            "Brown",
+            "Gray",
+            "Pink",
+            "Beige"
+        };
+
+        for (int i = 0; i < 150; i++)
         {
             ids++;
             currentData++;
-            print(ids);
-            datas[currentData] = new GameData("Pikachu", "Rata amarilla", ids);
+            ship++;
+            if (ship == 16)
+            {
+                ship = 1;
+                currentColor++;
+            }
+            //print(ids);
+            datas[currentData] = new GameData(ids, colors[currentColor] + " Ship " + ship, "Card with a " + colors[currentColor] + " ship", false);
             string json = JsonHelper.ToJson(datas, true);
             File.WriteAllText(Application.streamingAssetsPath + "/GameData.json", json);
         }
-        
-        //print(datas[0].name);
+        foreach (var x in colors)
+        {
+            //Debug.Log(x);
+        }
     }
 
     void Update()

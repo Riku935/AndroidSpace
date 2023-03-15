@@ -8,11 +8,12 @@ public class GameData
     public string name;
     public string description;
     public int id;
-
-    public GameData (string name, string description, int id)
+    public bool getCard;
+    public GameData (int id, string name, string description, bool getCard)
     {
+        this.id = id;
         this.name = name;
         this.description = description;
-        this.id = id;
+        this.getCard = getCard;
     }
 }
