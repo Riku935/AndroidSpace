@@ -7,12 +7,18 @@ using Unity.VisualScripting;
 
 public class SaveSystem : MonoBehaviour
 {
+    public GameData[] datas;
     void Start()
     {
         string json = File.ReadAllText(Application.streamingAssetsPath + "/GameData.json");
-        GameData[] datas = JsonHelper.FromJson<GameData>(json);
+        datas = JsonHelper.FromJson<GameData>(json);
+        var currentData = datas[0].description;
     }
 
+    void obtainMedal()
+    {
+
+    }
     void Write()
     {
         GameData[] datas = new GameData[150];
@@ -45,9 +51,9 @@ public class SaveSystem : MonoBehaviour
                 currentColor++;
             }
             //print(ids);
-            datas[currentData] = new GameData(ids, colors[currentColor] + " Ship " + ship, "Card with a " + colors[currentColor] + " ship", false);
-            string json = JsonHelper.ToJson(datas, true);
-            File.WriteAllText(Application.streamingAssetsPath + "/GameData.json", json);
+            //datas[currentData] = new GameData(ids, colors[currentColor] + " Ship " + ship, "Card with a " + colors[currentColor] + " ship", false);
+            //string json = JsonHelper.ToJson(datas, true);
+            //File.WriteAllText(Application.streamingAssetsPath + "/GameData.json", json);
         }
         foreach (var x in colors)
         {

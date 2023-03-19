@@ -211,6 +211,53 @@ MonoBehaviour:
   gamePaused: 0
   gameReady: 1
   score: 0
+--- !u!1 &122633607
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 122633608}
+  - component: {fileID: 122633609}
+  m_Layer: 0
+  m_Name: MedalManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &122633608
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 122633607}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1411300348}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &122633609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 122633607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18844ab48bbd03946b8bc53a381a4f8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currenMedal: 0
+  medal: MedalID
+  canChange: 1
 --- !u!1 &208134147
 GameObject:
   m_ObjectHideFlags: 0
@@ -848,7 +895,6 @@ GameObject:
   - component: {fileID: 455544497}
   - component: {fileID: 455544496}
   - component: {fileID: 455544498}
-  - component: {fileID: 455544499}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -913,19 +959,6 @@ MonoBehaviour:
   shipPrefab: {fileID: 678827400149957940, guid: d52655a371f22da4ebba2bd8b5130258, type: 3}
   timeBetweenSpawn: 6
   timeToSpawn: 2
---- !u!114 &455544499
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 455544495}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ca39777e61760b49bdfac18fcc8b4d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  medalPrefab: {fileID: 0}
 --- !u!1 &465976013
 GameObject:
   m_ObjectHideFlags: 0
@@ -3469,6 +3502,7 @@ Transform:
   - {fileID: 1065403075}
   - {fileID: 539486300}
   - {fileID: 1697161444}
+  - {fileID: 122633608}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4268,6 +4302,7 @@ MonoBehaviour:
   maxScore: 0
   scoreChange: 200
   difficultyMult: 1
+  maxScoreString: MaxScore
 --- !u!1 &1775502925
 GameObject:
   m_ObjectHideFlags: 0

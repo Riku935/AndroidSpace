@@ -10,6 +10,7 @@ public class ScoreManager : MonoBehaviour
     public int maxScore ;
     public int scoreChange = 200;
     public float difficultyMult = 1;
+    public string maxScoreString = "MaxScore";
     private void Awake()
     {
         obj = this;
@@ -17,7 +18,7 @@ public class ScoreManager : MonoBehaviour
     private void Start()
     {
         currentScore = score;
-        maxScore = PlayerPrefs.GetInt("MaxScore");
+        maxScore = PlayerPrefs.GetInt(maxScoreString);
     }
     private void Update()
     {

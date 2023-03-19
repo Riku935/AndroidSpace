@@ -22,11 +22,12 @@ public class MedalFunction : MonoBehaviour
             transform.Translate(Vector2.left * moveSpeed * Time.deltaTime);
         }
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (other.CompareTag("Player"))
+        if (collision.gameObject.tag == "Player")
         {
             gameObject.SetActive(false);
+            MedalManager.obj.Medal();
         }
     }
 }

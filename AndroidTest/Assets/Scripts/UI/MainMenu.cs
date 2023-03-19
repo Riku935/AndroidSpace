@@ -8,6 +8,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] GameObject mainMenu;
     [SerializeField] GameObject storeMenu;
     [SerializeField] GameObject extraMenu;
+    [SerializeField] GameObject medalMenu;
 
     public void Play()
     {
@@ -36,5 +37,16 @@ public class MainMenu : MonoBehaviour
     public void EraseData()
     {
         PlayerPrefs.SetInt("MaxScore",0);
+        PlayerPrefs.SetInt("MedalID", 0);
+    }
+    public void MedalPanel()
+    {
+        medalMenu.SetActive(true);
+        extraMenu.SetActive(false);
+    }
+    public void MedalPanelClose()
+    {
+        medalMenu.SetActive(false);
+        extraMenu.SetActive(true);
     }
 }

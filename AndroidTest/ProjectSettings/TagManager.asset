@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Enemy
   - Bullet
+  - Medal
+  - Container
   layers:
   - Default
   - TransparentFX
