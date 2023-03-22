@@ -23,6 +23,7 @@ public class ScoreManager : MonoBehaviour
     private void Update()
     {
         IncreasedDifficulty();
+        MaxScore();
     }
     public void MaxScore()
     {
@@ -31,7 +32,6 @@ public class ScoreManager : MonoBehaviour
         {
             maxScore = currentScore;
             PlayerPrefs.SetInt("MaxScore", maxScore);
-            print("asdasd");
         }
     }
     public void IncreasedDifficulty()

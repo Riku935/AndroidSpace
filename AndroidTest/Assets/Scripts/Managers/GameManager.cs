@@ -27,6 +27,14 @@ public class GameManager : MonoBehaviour
             UiManager.obj.GameOver();
         }
     }
+    public void GameRetry()
+    {
+        gameOver = false;
+        gameReady = true;
+        ScoreManager.obj.MaxScore();
+        Player_Main.obj.PlayerAlive();
+        UiManager.obj.RetryExtra();
+    }
     public void GamePaused()
     {
         gamePaused = true;

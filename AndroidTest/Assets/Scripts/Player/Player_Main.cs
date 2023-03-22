@@ -5,8 +5,8 @@ using UnityEngine;
 public class Player_Main : MonoBehaviour
 {
     public static Player_Main obj;
+    public int currentLife;
     public int life = 3;
-
     [Header("Inmune Settings")]
     public bool isInmune = false;
     public float inmuneTime = 0.5f;
@@ -22,11 +22,12 @@ public class Player_Main : MonoBehaviour
     void Start()
     {
         spr = GetComponent<SpriteRenderer>();
+        currentLife = life;
     }
 
     void Update()
     {
-        if (life == 0)
+        if (currentLife == 0)
         {
             PlayerDeath();
         }
@@ -48,7 +49,7 @@ public class Player_Main : MonoBehaviour
     }
     void PlayerDamage()
     {
-        life--;
+        currentLife--;
         Inmune();
         AudioManager.obj.playDamage();
     }
@@ -58,6 +59,12 @@ public class Player_Main : MonoBehaviour
         Instantiate(deathEffect, transform.position, transform.rotation);
         spr.enabled = false;
         ScoreManager.obj.MaxScore();
+    }
+    public void PlayerAlive()
+    {
+        spr.enabled = true;
+        currentLife = life;
+        Inmune() ;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

@@ -29,7 +29,7 @@ public class UiManager : MonoBehaviour
 
     public void updateLives()
     {
-        life.text = "" + Player_Main.obj.life;
+        life.text = "" + Player_Main.obj.currentLife;
     }
 
     public void updateScore()
@@ -63,10 +63,19 @@ public class UiManager : MonoBehaviour
         SceneManager.LoadScene("MainScene");
         ScoreManager.obj.MaxScore();
     }
+    public void RetryExtra()
+    {
+        gameOverMenu.SetActive(false);
+        gameMenu.SetActive(true);
+    }
     public void GameOver()
     {
         gameMenu.SetActive(false);
         gameOverMenu.SetActive(true);
+        if (StoreManager.obj.currentExtraLives == 0)
+        {
+            gameOverMenu.transform.GetChild(3).gameObject.SetActive(false);
+        }
     }
 
     private void OnDestroy()

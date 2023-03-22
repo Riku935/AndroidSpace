@@ -38,6 +38,7 @@ public class MainMenu : MonoBehaviour
     {
         PlayerPrefs.SetInt("MaxScore",0);
         PlayerPrefs.SetInt("MedalID", 0);
+        PlayerPrefs.SetInt("CurrentExtraLives", 0);
     }
     public void MedalPanel()
     {
