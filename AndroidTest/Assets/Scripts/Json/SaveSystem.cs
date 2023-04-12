@@ -10,8 +10,13 @@ public class SaveSystem : MonoBehaviour
     public GameData[] datas;
     void Start()
     {
-        string json = File.ReadAllText(Application.streamingAssetsPath + "/GameData.json");
+        TextAsset jsonAsset = Resources.Load<TextAsset>("GameData");
+        string json = jsonAsset.text;
+
+        //string json = File.ReadAllText(Application.streamingAssetsPath + "/GameData.json");
+        
         datas = JsonHelper.FromJson<GameData>(json);
+        
         var currentData = datas[0].description;
     }
 
