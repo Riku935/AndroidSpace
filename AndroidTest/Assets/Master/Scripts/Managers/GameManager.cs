@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
             UiManager.obj.GameOver();
             StatsManager.obj.SetStats();
             StatsManager.obj.GameCount++;
+            ReportManager.obj.ShowTrophy();
         }
     }
     public void GameRetry()

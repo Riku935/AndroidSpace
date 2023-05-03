@@ -13,12 +13,12 @@ public class StatsManager : MonoBehaviour
     public int medalCount;
     public int totalLifeCount;
 
-    private string enemy = "EnemyCount";
-    private string shoot = "ShootCount";
-    private string game = "GameCount";
-    private string score = "ScoreCount";
-    private string medal = "MedalCount";
-    private string life = "TotalLifeCount";
+    public string enemy = "EnemyCount";   //Cantidad de enemigos muertos
+    public string shoot = "ShootCount";   //Cantidad de disparos hechos
+    public string game = "GameCount";     //Cantidad de juegos jugados
+    public string score = "ScoreCount";   //Cantidad de score
+    public string medal = "MedalCount";   //Cantidad de medallas
+    public string life = "TotalLifeCount";//Cantidad de vidas gastadas 
 
     private void Awake()
     {

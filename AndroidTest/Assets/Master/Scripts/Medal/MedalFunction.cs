@@ -28,6 +28,7 @@ public class MedalFunction : MonoBehaviour
         {
             gameObject.SetActive(false);
             MedalManager.obj.Medal();
+            StatsManager.obj.medalCount++;
         }
     }
 }
