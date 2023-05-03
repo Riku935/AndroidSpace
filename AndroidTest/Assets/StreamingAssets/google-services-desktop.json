@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "830631051567",
+    "project_id": "astro-rocket-d18fe",
+    "storage_bucket": "astro-rocket-d18fe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:830631051567:android:072aafd7e1276e7ef521da",
+        "android_client_info": {
+          "package_name": "com.MajesticStudios.AstroRocket"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "830631051567-8qecn9btlmn1jn2s578rif51h5775g1j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVD7FCqph_9WkafMboBQcy8vouYFp7JwU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "830631051567-8qecn9btlmn1jn2s578rif51h5775g1j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
