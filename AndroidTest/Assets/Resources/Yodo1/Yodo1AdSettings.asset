@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   androidSettings:
     AppKey: YiZT8behvD
-    AdmobAppID: ca-app-pub-5580537606944457~4465578836
+    AdmobAppID: ca-app-pub-5580537606944457~5992148306
     BundleID: com.MajesticStudios.AstroRocket
     GooglePlayStore: 1
     ChineseAndroidStores: 0

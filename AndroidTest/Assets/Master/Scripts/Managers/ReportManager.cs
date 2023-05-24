@@ -14,6 +14,7 @@ public class ReportManager : MonoBehaviour
     }
     void Start()
     {
+        PlayGamesPlatform.Activate();
         PlayGamesPlatform.Instance.Authenticate(ProcessAuthentication);
     }
 
